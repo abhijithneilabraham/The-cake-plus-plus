@@ -1,7 +1,11 @@
 #include <iostream>
-#include<windows.h>
+#include<chrono>
+#include <unistd.h>
 
-using namespace std;
+// nanoseconds, system_clock, seconds
+
+  using namespace std;
+
 
 int main()
 {
@@ -9,11 +13,13 @@ int main()
     cout << "Enter some bad words" << endl;
     gets(str);
 
+
+
 for(int i=0;i<10;i++)
 {
   cout<<str<<"\n";
   cout<<i;
-  Sleep(1000);
+  usleep(1000000);
 
 
 }
