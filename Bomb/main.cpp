@@ -19,8 +19,8 @@ for(int i=0;i<10;i++)
 {
   cout<<str<<"\n";
   cout<<i;
-  usleep(1000000);
-
+  usleep(1000000); //usleep sets timer
+cout << '\a'; // this command makes a beep sound! interesting
 
 }
 
