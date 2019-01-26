@@ -44,9 +44,9 @@ class TicTacToe:
     
 game=TicTacToe()
 for i in range (9):
-    i=input('enter the row')
-    j=input('enter the colummn')
-    game.mark(i,j)
+    r=input('enter the row')
+    c=input('enter the colummn')
+    game.mark(r,c)
 print(game)
 winner=game.winner()
 if winner is None:
