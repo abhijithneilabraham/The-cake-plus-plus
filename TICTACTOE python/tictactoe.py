@@ -43,15 +43,15 @@ class TicTacToe:
         return '\n------\n'
     
 game=TicTacToe()
-for i in range (9):
-    r=input('enter the row')
-    c=input('enter the colummn')
+for k in range (9):
+    r=int(input('enter the row'))
+    c=int(input('enter the colummn'))
     game.mark(r,c)
 print(game)
 winner=game.winner()
 if winner is None:
     print('Tie')
 else:
-    print('wins')
+    print(winner,'wins')
     
         
