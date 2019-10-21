@@ -1,0 +1,67 @@
+#include<fstream.h>
+#include<iostream.h>
+#include<conio.h>
+#include<stdio.h>
+//for remove and rename
+class booking
+{
+char firstname[20],lastname[20],dest[20],dept[20],email[20],food[10];
+char flightno1[10];
+long int phone;
+int ticketno,seat;
+public:
+	struct time
+	{
+	int h,m,s;
+	}tb;
+	long int price;
+	int getticketno(){return ticketno;}
+	void dispbooking();
+}B;
+void main()
+{
+clrscr();
+int ticket,found=0;
+
+fstream fdelete,td;
+fdelete.open("BOOKING",ios::in|ios::binary);
+td.open("temp",ios::binary|ios::in|ios::out);
+if(!td)
+   cout<<"\nCANNOT OPEN FILE";
+cout<<"\nENTER THE PASSPORT NUMBER TO BE DELETED:";
+cin>>ticket;
+while(fdelete.read((char*)&B,sizeof(B)))
+{
+if(ticket==B.getticketno())
+{
+B.dispbooking();
+cout<<"\nTHIS RECORD IS DELETED";
+found=1;
+}
+else
+td.write((char*)&B,sizeof(B));
+}
+if(!found)
+cout<<"RECORD NOT FOUND";
+fdelete.close();
+td.close();
+remove("BOOKING");
+rename("temp","BOOKING");
+getch();
+}
+ void booking::dispbooking()
+ {
+  cout<<"PASSPORTNO           :"<<ticketno;
+ cout<<"\nPASSENGER'S FIRSTNAME:"<<firstname;
+ cout<<"\nPASSENGER'S LASTNAME :"<<lastname;
+ cout<<"\nPLACE OF DEPARTURE   :"<<dept;
+ cout<<"\nDESTINATION          :"<<dest;
+ cout<<"\nPHONE NUMBER         :"<<phone;
+ cout<<"\nEMAIL                :"<<email;
+ cout<<"\nFOOD TYPE            :"<<food;
+ cout<<"\nFLIGHT NO            :"<<flightno1;
+ cout<<"\nTIME                 :"<<tb.h<<":"<<tb.m<<":"<<tb.s;
+ cout<<"\nPRICE OF  THE TICKET :"<<price;
+ cout<<"\nSEAT NO              :"<<seat;
+ }
+
