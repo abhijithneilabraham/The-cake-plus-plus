@@ -1,0 +1,60 @@
+#include<stdlib.h>
+#include<conio.h>
+#include<graphics.h>
+#include<dos.h>
+
+
+void main()
+{
+int g=DETECT,d;
+initgraph(&g,&d,"\tc\bgi");
+cleardevice();
+setbkcolor(BLACK);
+while (!kbhit())
+{
+ setcolor(rand());
+ for(int j=0;j<600;j+=80)
+ {
+ for (int i=0;i<40;i++)
+ circle(40+j,40,i);
+ }
+
+ setcolor(rand());
+ for( j=0;j<600;j+=80)
+ {
+ for (int  i=0;i<40;i++)
+ circle(40+j,440,i);
+ }
+  setcolor(rand());
+for( j=0;j<600;j+=80)
+ {
+ for (int  i=0;i<40;i++)
+ circle(40+j,120,i);
+ }
+
+ setcolor(rand());
+ for( j=0;j<600;j+=80)
+ {
+ for (int  i=0;i<40;i++)
+ circle(40+j,200,i);
+ }
+  setcolor(rand());
+ for( j=0;j<600;j+=80)
+ {
+ for (int  i=0;i<40;i++)
+ circle(40+j,280,i);
+ }
+   setcolor(rand());
+ for( j=0;j<600;j+=80)
+ {
+ for (int  i=0;i<40;i++)
+ circle(40+j,360,i);
+ }
+  setcolor(WHITE);
+ settextstyle(8,HORIZ_DIR,7);
+ for(int i=0;i<10;i++)
+ outtextxy(120+i,180,"THANK YOU ");
+
+}
+getch();
+}

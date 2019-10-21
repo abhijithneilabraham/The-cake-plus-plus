@@ -1,0 +1,26 @@
+#include<iostream.h>
+#include <graphics.h>
+#include <stdlib.h>
+#include <dos.h>
+#include <conio.h>
+void main()
+{
+int gdriver = DETECT, gmode, errorcode;
+initgraph(&gdriver, &gmode, "");
+for(int i=1;i<=8;i++)
+{
+	setcolor(i);
+	delay(200);
+
+settextstyle(8,HORIZ_DIR,9);
+outtextxy(150,200,"Priyamvadha");
+
+}
+line(200,100,600,100);
+setcolor(YELLOW);
+setfillstyle(SOLID_FILL, BLUE);
+rectangle(10,10,600,300);
+floodfill(11, 11, YELLOW);
+getch();
+}
+//vert
