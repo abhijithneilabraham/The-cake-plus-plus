@@ -1,0 +1,1894 @@
+#include<iostream.h>
+#include<conio.h>
+#include<dos.h>
+#include<process.h>
+#include<iomanip.h>
+#include<string.h>
+#include<fstream.h>
+#include<stdlib.h>
+#include<stdio.h>
+#include<graphics.h>
+class flightdom
+{
+	char fno[10];
+	char dept[20],dest[20];
+	public:
+	struct time
+	{
+	int h,m,s;
+	}t;
+	int seat[10];
+	char* getfno(){return fno;}
+	char* getdept(){return dept;}
+	char* getdest(){return dest;}
+	time  gettime(){return t;}
+
+	void dispflightd();
+
+	void dispflightdb();
+
+	void disptimed();
+
+	void getflight();
+
+	void dispflight();
+
+
+}D;
+class booking
+{
+char firstname[20],lastname[20],dest[20],dept[20],email[20],food[10];
+char flightno1[10],sex,adress[30];
+long int phone;
+int ticketno;
+int seat;
+public:
+	struct time
+	{
+	int h,m,s;
+	}tb;
+	int getticketno(){return ticketno;}
+	long int price;
+	time gettime(){return tb;}
+	long int getprice(){return price;}
+	char* flightno(){return flightno1;}
+	char* getdept(){return dept;}
+	char* getdest(){return dest;}
+	void getbooking();
+	void dispbooking();
+	void dispbookingdd();
+}B;
+class dfirst
+{
+long int adultf,kidf,todf;
+public:
+long int getadultf(){return adultf;}
+long int getkidf(){return kidf;}
+long int gettodf(){return todf;}
+void toddler();
+void children();
+void adult();
+void disp();
+}PF;
+class dbusiness
+{
+long int adultb,kidb,todb;
+public:
+long int getadultb(){return adultb;}
+long int getkidb(){return kidb;}
+long int gettodb(){return todb;}
+void toddler();
+void children();
+void adult();
+void disp();
+}PB;
+class deconomic
+{
+long int adulte,kide,tode;
+public:
+long int getadulte(){return adulte;}
+long int getkide(){return kide;}
+long int gettode(){return tode;}
+void toddler();
+void children();
+void adult();
+void disp();
+}PE;
+struct dob
+{
+int d,m,y;
+}date;
+struct time1
+{
+ int h,m,s;
+}ts;
+void LINE_HOR(int column1,int column2,int row,char c)
+{
+for(column1;column1<=column2;column1++)
+{
+gotoxy(column1,row);
+cout<<c;
+}
+}
+void LINE_VER(int row1,int row2,int column,char c)
+{
+for(row1;row1<=row2;row1++)
+{
+gotoxy(column,row1);
+cout<<c;
+}
+}
+void BOX(int column1,int row1,int column2,int row2,char c)//box
+{
+char ch=218;
+char c1,c2,c3,c4;
+char l1=196,l2=179;
+if(c==ch)
+{
+c1=218;
+c2=191;
+c3=192;
+c4=217;
+l1=196;
+l2=179;
+}
+else
+{
+c1=c;
+c2=c;
+c3=c;
+c4=c;
+l1=c;
+l2=c;
+}
+gotoxy(column1,row1);
+cout<<c1;
+gotoxy(column2,row1);
+cout<<c2;
+gotoxy(column1,row2);
+cout<<c3;
+gotoxy(column2,row2);
+cout<<c4;
+column1++;
+column2--;
+LINE_HOR(column1,column2,row1,l1);
+LINE_HOR(column1,column2,row2,l1);
+column1--;
+column2++;
+row1++;
+row2--;
+LINE_VER(row1,row2,column1,l2);
+LINE_VER(row1,row2,column2,l2);
+}
+int i=7;
+char pass[10]="DIVERGENT";
+char word[10];
+void main()
+{
+clrscr();
+
+for(int x=20,y=6;y<17;y++)
+{gotoxy(x,y);
+cout<<"Û";
+}
+for( x=20,y=6;x<61;x++)
+{gotoxy(x,y);
+cout<<"Û";
+}
+for( x=61,y=6;y<17;y++)
+{gotoxy(x,y);
+cout<<"Û";
+}
+for( x=61,y=17;x>19;x--)
+{gotoxy(x,y);
+cout<<"Û";
+}
+
+
+gotoxy(30,10);
+cout<<"ENTER THE PASSWORD";
+gotoxy(30,12);
+for(int i=0;i<9;i++)
+{
+word[i]=getch();
+gotoxy(30+i,12);
+cout<<"Û";
+}
+word[i]='\0';
+if(strcmpi(pass,word)==0)
+{
+cout<<" "<<"access granted";
+
+delay(700);
+getch();
+}
+
+else
+  {
+  cout<<" "<<"access denied";
+  getch();
+  exit(0);
+  }
+
+clrscr();
+
+int gdriver = DETECT, gmode, errorcode;
+initgraph(&gdriver, &gmode, "");
+settextstyle(1,HORIZ_DIR,9);
+
+for(i=0;i<11;i++)
+{
+if(i%2==0)
+{
+setcolor(1);
+outtextxy(150,80,"T");
+delay(50);
+}
+else
+{
+setcolor(0);
+outtextxy(150,80,"T");
+delay(50);
+}
+}
+
+for(i=0;i<11;i++)
+{
+if(i%2==0)
+{
+setcolor(2);
+outtextxy(210,80,"R");
+delay(75);
+}
+else
+{
+setcolor(0);
+outtextxy(210,80,"R");
+delay(75);
+}
+}
+for(i=0;i<11;i++)
+{
+if(i%2==0)
+{
+setcolor(14);
+outtextxy(270,80,"A");
+delay(75);
+}
+else
+{
+setcolor(0);
+outtextxy(270,80,"A");
+delay(75);
+}
+}
+for(i=0;i<11;i++)
+{
+if(i%2==0)
+{
+setcolor(4);
+outtextxy(320,80,"V");
+delay(75);
+}
+else
+{
+setcolor(0);
+outtextxy(320,80,"V");
+delay(75);
+}
+}
+for(i=0;i<11;i++)
+{
+if(i%2==0)
+{
+setcolor(5);
+outtextxy(380,80,"E");
+delay(75);
+}
+else
+{
+setcolor(0);
+outtextxy(380,50,"E");
+delay(75);
+}
+}
+for(i=0;i<11;i++)
+{
+if(i%2==0)
+{
+setcolor(6);
+outtextxy(440,80,"L");
+delay(75);
+}
+else
+{
+setcolor(0);
+outtextxy(440,80,"L");
+delay(75);
+}
+}
+for(i=0;i<11;i++)
+{
+if(i%2==0)
+{
+setcolor(12);
+outtextxy(300,180,"I");
+delay(75);
+}
+else
+{
+setcolor(0);
+outtextxy(300,180,"I");
+delay(75);
+}
+}
+
+for(i=0;i<11;i++)
+{
+if(i%2==0)
+{
+setcolor(13);
+outtextxy(340,180,"N");
+delay(75);
+}
+else
+{
+setcolor(0);
+outtextxy(340,180,"N");
+delay(75);
+}
+}
+for(i=0;i<11;i++)
+{
+if(i%2==0)
+{
+setcolor(9);
+outtextxy(405,180,"D");
+delay(75);
+}
+else
+{
+setcolor(0);
+outtextxy(405,180,"D");
+delay(75);
+}
+}
+for(i=0;i<11;i++)
+{
+if(i%2==0)
+{
+setcolor(10);
+outtextxy(460,180,"I");
+delay(75);
+}
+else
+{
+setcolor(0);
+outtextxy(460,180,"I");
+delay(75);
+}
+}
+for(i=0;i<11;i++)
+{
+if(i%2==0)
+{
+setcolor(11);
+outtextxy(490,180,"A");
+delay(75);
+}
+else
+{
+setcolor(0);
+outtextxy(490,180,"A");
+delay(75);
+}
+}
+
+cleardevice();
+settextstyle(1,HORIZ_DIR,9);
+
+for(i=0;i<50;i++)
+{
+setcolor(rand());
+outtextxy(150,80,"TRAVEL");
+outtextxy(300,180,"INDIA");
+delay(100);
+}
+getch();
+ setbkcolor(0);
+
+   for(i=0;i<600;i=i+10)
+   {
+   putpixel(random(439)+101,  random(279)+101,random(16));
+   putpixel(random(640),random(600),random(200));
+   settextstyle(2,HORIZ_DIR,5);
+   outtextxy(120+i,83,"LOADING>>>");
+   setcolor(rand());
+   line(90+i,80,250+i,80);
+   line(90+i,100,250+i,100);
+   arc(250+i,90,270,90,10);
+   line(90+i,80,60+i,45);
+   line(90+i,100,65+i,135);
+   line(60+i,45,40+i,45);
+   line(65+i,135,45+i,135);
+   line(40+i,45,70+i,90);
+   line(45+i,135,70+i,90);
+   line(140+i,80,110+i,20);
+   line(140+i,100,110+i,160);
+   line(110+i,160,130+i,160);
+   line(110+i,20,130+i,20);
+   line(130+i,20,180+i,80);
+   line(130+i,160,180+i,100);
+   delay(150);
+   cleardevice();
+   }
+
+   for(i=0;i<600;i=i+10)
+   {
+    putpixel(random(640),random(600),random(200));
+   settextstyle(2,HORIZ_DIR,5);
+   outtextxy(450-i,321,"<<<LOADING");
+   setcolor(rand());
+   line(550-i,320,390-i,320);
+   line(550-i,340,390-i,340);
+   arc(390-i,330,90,270,10);
+   line(550-i,320,580-i,285);
+   line(550-i,340,575-i,375);
+   line(580-i,285,600-i,285);
+   line(575-i,375,595-i,375);
+   line(600-i,285,570-i,330);
+   line(595-i,375,570-i,330);
+   line(500-i,320,530-i,250);
+   line(500-i,340,530-i,410);
+   line(530-i,250,510-i,250);
+   line(530-i,410,510-i,410);
+   line(510-i,250,460-i,320);
+   line(510-i,410,460-i,340);
+   delay(150);
+   cleardevice();
+   }
+closegraph();
+void mainmenu();
+mainmenu();
+getch();
+}
+void mainmenu()
+{
+clrscr();
+int gdriver = DETECT, gmode, errorcode;
+initgraph(&gdriver, &gmode, "");
+void booking();
+void search();
+void modify();
+void cancellation();
+void pricedetails();
+void display();
+void help();
+int ch1,chinvalid;
+char checkerboard[8] = {
+  0xAA,   /* 10101010  =  Û Û Û Û   */
+  0x55,   /* 01010101  =   Û Û Û Û  */
+  0xAA,   /* 10101010  =  Û Û Û Û   */
+  0x55,   /* 01010101  =   Û Û Û Û  */
+  0xAA,   /* 10101010  =  Û Û Û Û   */
+  0x55,   /* 01010101  =   Û Û Û Û  */
+  0xAA,   /* 10101010  =  Û Û Û Û   */
+  0x55    /* 01010101  =   Û Û Û Û  */
+};
+  /* select our new pattern */
+setfillpattern(checkerboard, RED);
+
+/* fill the screen with the new pattern */
+bar(0, 0, 650, 600);
+line(70,140,570,140);
+line(70,130,570,130);
+settextstyle(4,HORIZ_DIR,8);
+outtextxy(70,40,"MAIN MENU");
+settextstyle(7,HORIZ_DIR,2);
+outtextxy(90,170,"1.RESERVATION");
+settextstyle(7,HORIZ_DIR,2);
+outtextxy(90,210,"2.SEARCH");
+settextstyle(7,HORIZ_DIR,2);
+outtextxy(90,250,"3.MODIFY");
+settextstyle(7,HORIZ_DIR,2);
+outtextxy(90,290,"4.CANCELLATION");
+settextstyle(7,HORIZ_DIR,2);
+outtextxy(340,170,"5.PRICE DETAILS");
+settextstyle(7,HORIZ_DIR,2);
+outtextxy(340,210,"6.PASSENGER RECORDS");
+settextstyle(7,HORIZ_DIR,2);
+outtextxy(340,250,"7.HELP");
+settextstyle(7,HORIZ_DIR,2);
+outtextxy(340,290,"8.EXIT");
+settextstyle(7,HORIZ_DIR,2);
+outtextxy(150,346,"ENTER YOUR CHOICE:");
+gotoxy(50,23);
+cin>>ch1;
+
+clrscr();
+closegraph();
+switch(ch1)
+{
+case 1:clrscr();
+       booking();
+       break;
+case 2:clrscr();
+       search();
+       break;
+case 3:clrscr();
+       modify();
+       break;
+case 4:clrscr();
+       cancellation();
+       break;
+case 5:clrscr();
+       pricedetails();
+       break;
+
+case 6:clrscr();
+       display();
+       break;
+case 7:clrscr();
+       help();
+       break;
+case 8:exit:
+       clrscr();
+       //
+	int gdriver = DETECT, gmode, errorcode;
+	initgraph(&gdriver, &gmode, "");
+	cleardevice();
+	setbkcolor(BLACK);
+	while (!kbhit())
+	{
+	 setcolor(rand());
+	 for(int j=0;j<600;j+=80)
+	 {
+	 for (int i=0;i<40;i++)
+	 circle(40+j,40,i);
+	 }
+
+	 setcolor(rand());
+	 for( j=0;j<600;j+=80)
+	 {
+	 for (int  i=0;i<40;i++)
+	 circle(40+j,440,i);
+	 }
+	  setcolor(rand());
+	for( j=0;j<600;j+=80)
+	 {
+	for (int  i=0;i<40;i++)
+	circle(40+j,120,i);
+	 }
+
+	 setcolor(rand());
+	 for( j=0;j<600;j+=80)
+	 {
+	 for (int  i=0;i<40;i++)
+	 circle(40+j,200,i);
+	 }
+	  setcolor(rand());
+	 for( j=0;j<600;j+=80)
+	 {
+	 for (int  i=0;i<40;i++)
+	 circle(40+j,280,i);
+	 }
+	  setcolor(rand());
+	 for( j=0;j<600;j+=80)
+	 {
+	 for (int  i=0;i<40;i++)
+	 circle(40+j,360,i);
+	 }
+	  setcolor(WHITE);
+	 settextstyle(8,HORIZ_DIR,7);
+	 for(int i=0;i<10;i++)
+	 outtextxy(120+i,180,"THANK YOU ");
+	 settextstyle(8,HORIZ_DIR,3);
+	 for( i=0;i<5;i++)
+	 outtextxy(500+i,440,"EXITING.... ");
+}
+
+
+       delay(100);
+       exit(0);
+       closegraph();
+       break;
+default:cout<<"\nINVALID OPERATION";
+	cout<<"\nPRESS M/m TO GO BACK TO MAIN MENU OR PRESS ANY KEY TO EXIT";
+	cin>>chinvalid;
+	if(chinvalid=='M'||chinvalid=='m')
+	  mainmenu();
+	else
+	  goto exit;
+}//switch
+closegraph();
+getch();
+}
+
+void booking()
+{
+clrscr();
+
+void returnbooking();
+char ch2;
+long int price1;
+char enter;
+int found=0,chclass,age,n;
+
+fstream b,d1,bdisplay;
+
+//d1.open("DOMESTIC",ios::binary|ios::in);
+b.open("BOOKING",ios::in|ios::out|ios::binary|ios::app);
+bdisplay.open("BOOKINGDISPLAY",ios::in|ios::out|ios::binary|ios::trunc);
+if(!d1)
+ cout<<"CANNOT OPEN FILE";
+if(!b)
+ cout<<"CANNOT OPEN FILE";
+else
+ {        int gdriver = DETECT, gmode, errorcode;
+	  initgraph(&gdriver, &gmode, "");
+	  i=7;
+	  d1.open("DOMESTIC",ios::binary|ios::in);
+	  BOX(1,2,80,24,218);
+	  LINE_HOR(2,79,4,196);
+	  LINE_HOR(2,79,6,196);
+	  LINE_HOR(2,79,22,196);
+	  gotoxy(32,3);
+	  cout<<"FLIGHT(S) AVAILABLE";
+	  textcolor(BLACK);textbackground(WHITE);
+	  setcolor(WHITE);
+	  settextstyle(2,HORIZ_DIR,5);
+	  outtextxy(1,60," FLIGHTNO.                  FROM                   TO                   TIME    ");
+	  textcolor(LIGHTGRAY);textbackground(BLACK);
+	  setbkcolor(DARKGRAY);
+	  d1.seekg(0,ios::beg);
+	   while(d1.read((char*)&D,sizeof(D)))
+	   {
+	    if(strcmpi(D.getdept(),"KOLKATA")==0 || strcmpi(D.getdept(),"COCHIN")==0)
+	    {
+	    ++i;
+	    D.dispflightd();
+	    found=1;
+	    }
+	   }//while
+	  d1.close();
+	  gotoxy(2,22);
+	  cout<<"\nPRESS ENTER TO VIEW REST OF THE FLIGHT DETAILS";
+	  getch();
+	  clrscr();
+	  cleardevice();
+	  i=7;
+	  d1.open("DOMESTIC",ios::binary|ios::in);
+	  BOX(1,2,80,24,218);
+	  LINE_HOR(2,79,4,196);
+	  LINE_HOR(2,79,6,196);
+	  LINE_HOR(2,79,22,196);
+	  gotoxy(32,3);
+	  cout<<"FLIGHT(S) AVAILABLE";
+	  textcolor(BLACK);textbackground(WHITE);
+	  setcolor(WHITE);
+	  settextstyle(2,HORIZ_DIR,5);
+	  outtextxy(1,60," FLIGHTNO.                  FROM                   TO                   TIME    ");
+	  textcolor(LIGHTGRAY);textbackground(BLACK);
+	  d1.seekg(0,ios::beg);
+
+	   while(d1.read((char*)&D,sizeof(D)))
+	   {
+	    if(strcmpi(D.getdept(),"BENGALURU")==0 || strcmpi(D.getdept(),"DELHI")==0)
+	    {
+	    ++i;
+	    D.dispflightd();
+	    found=1;
+	    }
+	   }//while
+	  d1.close();
+	  gotoxy(2,23);
+	  cout<<"PRESS ENTER TO VIEW REST OF THE FLIGHT DETAILS";
+	  getch();
+	  clrscr();
+	  cleardevice();
+	  i=7;
+	  d1.open("DOMESTIC",ios::binary|ios::in);
+	  BOX(1,2,80,24,218);
+	  LINE_HOR(2,79,4,196);
+	  LINE_HOR(2,79,6,196);
+	  LINE_HOR(2,79,22,196);
+	  gotoxy(32,3);
+	  cout<<"FLIGHT(S) AVAILABLE";
+	  textcolor(BLACK);textbackground(WHITE);
+	  setcolor(WHITE);
+	  settextstyle(2,HORIZ_DIR,5);
+	  outtextxy(1,60," FLIGHTNO.                  FROM                   TO                   TIME    ");
+	  textcolor(LIGHTGRAY);textbackground(BLACK);
+	  d1.seekg(0,ios::beg);
+	   while(d1.read((char*)&D,sizeof(D)))
+	   {
+	    if(strcmpi(D.getdept(),"MUMBAI")==0 || strcmpi(D.getdept(),"HYDERBAD")==0)
+	    {
+	    ++i;
+	    D.dispflightd();
+	    found=1;
+	    }
+	   }//while
+	  gotoxy(2,23);
+	  cout<<"PRESS ENTER TO VIEW REST OF THE FLIGHT DETAILS";
+	  d1.close();
+	  getch();
+	 clrscr();
+	 cleardevice();
+	  i=7;
+	  d1.open("DOMESTIC",ios::binary|ios::in);
+	  BOX(1,2,80,24,218);
+	  LINE_HOR(2,79,4,196);
+	  LINE_HOR(2,79,6,196);
+	  LINE_HOR(2,79,22,196);
+	  gotoxy(32,3);
+	  cout<<"FLIGHT(S) AVAILABLE";
+	  textcolor(BLACK);textbackground(WHITE);
+	  setcolor(WHITE);
+	  settextstyle(2,HORIZ_DIR,5);
+	  outtextxy(1,60," FLIGHTNO.                  FROM                   TO                   TIME    ");
+	  textcolor(LIGHTGRAY);textbackground(BLACK);
+	  d1.seekg(0,ios::beg);
+	   while(d1.read((char*)&D,sizeof(D)))
+	   {
+	    if(strcmpi(D.getdept(),"PATNA")==0)
+	    {
+	    ++i;
+	    D.dispflightd();
+	    found=1;
+	    }
+	   }//while
+	  d1.close();
+
+	  gotoxy(2,23);
+	  cout<<"PRESS ENTER TO START BOOKING";
+	  getch();
+	  clrscr();
+	  cleardevice();
+	  closegraph();
+
+
+ d1.open("DOMESTIC",ios::binary|ios::in);
+ cout<<"\nENTER THE NO OF TICKETS YOU WANT TO BOOK:";
+  cin>>n;
+
+  for(int i=0;i<n;i++)
+  {
+  clrscr();
+  B.getbooking();
+
+  do
+  {
+  if(strcmpi(D.getdept(),B.getdept())==0 && strcmpi(D.getdest(),B.getdest())==0)
+    {
+
+      strcpy(B.flightno(),D.getfno());
+      B.tb.h=D.t.h;
+      B.tb.m=D.t.m;
+      B.tb.s=D.t.s;
+      found=1;
+      //b.write((char*)&B,sizeof(B));
+
+      break;
+
+    }
+    }while(d1.read((char*)&D,sizeof(D)));
+
+ if(!found)
+ {
+    cout<<"NO FLIGHT IS AVAILABLE IN THIS ROUTE";
+    cout<<"\nPRESS A/a to rebook or B/b to exit:";
+    cin>>enter;
+       if(enter=='A'|| enter=='a')
+	 B.getbooking();
+       else if(enter=='B'|| enter=='b')
+	 {exit(0);
+	  getch();
+	 }
+       }
+
+   cout<<"\nENTER THE PREFERED CLASS (1.FIRSTCLASS/2.BUSINNESS CLASS/3.ECONOMIC CLASS)";
+   cin>>chclass;
+
+   switch(chclass)
+   {
+    case 1:
+	   fstream ff;
+	   ff.open("dfirstclass",ios::binary|ios::in);
+	   if(!ff)
+	   cout<<"CANNOT OPEN FILE";
+	   else
+	   {
+		cout<<"\nENTER THE AGE OF THE PASSENGER:";
+		cin>>age;
+			if(age<=5)
+			{
+			ff.read((char*)&PF,sizeof(PF));
+			price1=PF.gettodf();
+			B.price=price1;
+			b.write((char*)&B,sizeof(B));
+			bdisplay.write((char*)&B,sizeof(B));
+			}
+			else if(age<=14)
+			{
+			ff.read((char*)&PF,sizeof(PF));
+			price1=PF.getkidf();
+			B.price=price1;
+			b.write((char*)&B,sizeof(B));
+			bdisplay.write((char*)&B,sizeof(B));
+			}
+			else
+			{
+			ff.read((char*)&PF,sizeof(PF));
+			price1=PF.getadultf();
+			B.price=price1;
+			b.write((char*)&B,sizeof(B));
+			bdisplay.write((char*)&B,sizeof(B));
+			}
+
+
+	   }
+
+	   break;
+    case 2:     fstream fb;
+		fb.open("dbusinessclass",ios::binary|ios::in);
+		if(!fb)
+		cout<<"CANNOT OPEN FILE";
+		else
+		{
+
+			cout<<"\nENTER THE AGE OF THE PASSENGER:";
+			cin>>age;
+			if(age<=5)
+			{
+			fb.read((char*)&PB,sizeof(PB));
+			price1=PB.gettodb();
+			B.price=price1;
+			b.write((char*)&B,sizeof(B));
+			bdisplay.write((char*)&B,sizeof(B));
+			}
+			else if(age<=14)
+			{
+			fb.read((char*)&PB,sizeof(PB));
+			price1=PB.getkidb();
+			B.price=price1;
+			b.write((char*)&B,sizeof(B));
+			bdisplay.write((char*)&B,sizeof(B));
+			}
+			else
+			{
+			fb.read((char*)&PB,sizeof(PB));
+			price1=PB.getadultb();
+			B.price=price1;
+			b.write((char*)&B,sizeof(B));
+			bdisplay.write((char*)&B,sizeof(B));
+			}
+		}
+
+		break;
+
+    case 3: fstream fe;
+	    fe.open("deconomicclass",ios::binary|ios::in);
+	    if(!fe)
+	    cout<<"CANNOT OPEN FILE";
+	    else
+	    {
+		cout<<"\nENTER THE AGE OF THE PASSENGER:";
+		cin>>age;
+		if(age<=5)
+		{
+		fe.read((char*)&PE,sizeof(PE));
+		  price1=PE.gettode();
+		  B.price=price1;
+		  b.write((char*)&B,sizeof(B));
+		  bdisplay.write((char*)&B,sizeof(B));
+		}
+		else if(age<=14)
+		{
+		fe.read((char*)&PE,sizeof(PE));
+		  price1=PE.getkide();
+		  B.price=price1;
+		  b.write((char*)&B,sizeof(B));
+		  bdisplay.write((char*)&B,sizeof(B));
+		}
+		else
+		{
+		fe.read((char*)&PE,sizeof(PE));
+		  price1=PE.getadulte();
+		  B.price=price1;
+		  b.write((char*)&B,sizeof(B));
+		  bdisplay.write((char*)&B,sizeof(B));
+		}
+	    }
+
+		break;
+
+    default: cout<<"\nINVALID OPERATION";
+
+
+    }//switch
+
+
+
+
+
+}//for
+
+ }//else
+ d1.close();
+ b.close();
+ bdisplay.close();
+ returnbooking();
+ getch();
+}
+
+
+void returnbooking()
+{
+int gdriver = DETECT, gmode, errorcode;
+initgraph(&gdriver, &gmode, "");
+int ch2;
+cout<<"\nPRESS 1 TO RETURN TO MAIN MENU 2.TO DISPLAY YOUR TICKET 3.BOOK MORE:";
+cin>>ch2;
+switch(ch2)
+{
+ case 1:mainmenu();
+	break;
+ case 2:
+	clrscr();
+	fstream bdisplay;
+	bdisplay.open("BOOKINGDISPLAY",ios::in|ios::binary);
+	if(!bdisplay)
+	  cout<<"CANNOT OPEN FILE";
+	clrscr();
+	while(bdisplay.read((char*)&B,sizeof(B)))
+	{
+	  cleardevice();
+	  setcolor(YELLOW);
+	  setfillstyle(SOLID_FILL,BLACK);
+	  rectangle(4,40,635,335);
+	  floodfill(5, 41, YELLOW);
+	  settextstyle(7,HORIZ_DIR,2);
+	  outtextxy(250,47,"TICKET");
+	  line(6,85,630,85);
+
+	  line(100,118,629,118);
+	  line(91,295,629,295);
+	  line(100,119,6,200);
+	  line(6,200,92,293);
+	  line(100,220,600,220);
+	  outtextxy(10,120,"FROM");
+	  outtextxy(16,255,"TO");
+
+		gotoxy(14,9);
+		cout<<"PASSPORTNO";
+		gotoxy(40,9);
+		cout<<"PASSENGER";
+		gotoxy(70,9);
+		cout<<"SEX";
+		gotoxy(15,12);
+		cout<<"ADDRESS";
+		gotoxy(41,12);
+		cout<<"PHONENO";
+		gotoxy(69,12);
+		cout<<"EMAIL";
+		gotoxy(13,16);
+		cout<<"FLIGHT";
+		gotoxy(43,16);
+		cout<<"FOODTYPE";
+		gotoxy(70,16);
+		cout<<"TIME";
+		gotoxy(29,16);
+		cout<<"PRICE";
+		gotoxy(58,16);
+		cout<<"SEATNO";
+	 B.dispbookingdd();
+	 getch();
+
+
+
+	}
+	cleardevice();
+	cout<<"\nPRESS 1 TO RETURN TO MAIN MENU 2.BOOK MORE";
+	cin>>ch2;
+	switch(ch2)
+	{
+	    case 1:mainmenu();
+		   break;
+
+	    case 2:booking();
+		   break;
+	}
+	break;
+ case 3:booking();
+	break;
+ default:returnbooking();
+}
+closegraph();
+}
+
+void search()
+{
+
+fstream d;
+void returnsearch();
+int gdriver = DETECT, gmode, errorcode;
+initgraph(&gdriver, &gmode, "");
+d.open("DOMESTIC",ios::binary|ios::in|ios::out);
+if(!d)
+  cout<<"Cannot open file";
+else
+{
+ int ch1,found=0;
+
+ char fnos[10],depts[20],dests[20];
+ clrscr();
+ BOX(15,5,66,23,218);
+ LINE_HOR(16,65,7,218);
+ //textcolor(LIGHTGRAY);
+ gotoxy(33,6);
+ cout<<"SEARCH";
+ gotoxy(20,11);
+ cout<<"1.BY FLIGHTNO";
+ gotoxy(20,13);
+ cout<<"2.BY PLACE OF DEPARTURE";
+ gotoxy(20,15);
+ cout<<"3.SEARCH BY DESTINATION";
+ gotoxy(20,17);
+ cout<<"4.MAIN MENU";
+ gotoxy(20,19);
+ cout<<"ENTER YOUR CHOICE";
+ cin>>ch1;
+ switch(ch1)
+ {
+  case 1: gotoxy(20,21);
+	  cout<<"ENTER FLIGHTNO:";
+	  gets(fnos);
+	  clrscr();
+	  BOX(1,2,80,24,218);
+	  LINE_HOR(2,79,4,196);
+	  LINE_HOR(2,79,6,196);
+	  LINE_HOR(2,79,22,196);
+	  gotoxy(32,3);
+	  gotoxy(32,3);
+	  cout<<"FLIGHT(S) AVAILABLE";
+	  textcolor(BLACK);textbackground(WHITE);
+	  gotoxy(2,5);
+	  setcolor(BLACK);
+	  settextstyle(2,HORIZ_DIR,5);
+	  outtextxy(1,60," FLIGHTNO.                  FROM                   TO                   TIME    ");
+	   textcolor(LIGHTGRAY);
+	  textbackground(BLACK);
+
+	  while(d.read((char*)&D,sizeof(D)))
+	  {
+	   if(strcmpi(fnos,D.getfno())==0)
+	   {
+	    ++i;
+	    D.dispflightd();
+	    found=1;
+	    break;
+	    }
+
+	   }
+	  i=7;
+	  d.close();
+	  if(!found)
+	  cout<<"RECORD DOESNOT EXIST";
+
+	  getch();
+	  break;
+    case 2:
+	   gotoxy(20,21);
+	   cout<<"ENTER THE PLACE OF DEPARTURE";
+	   gets(depts);
+	   clrscr();
+	   BOX(1,2,80,24,218);
+	   LINE_HOR(2,79,4,196);
+	   LINE_HOR(2,79,6,196);
+	   LINE_HOR(2,79,22,196);
+	   gotoxy(32,3);
+	   cout<<"FLIGHT(S) AVAILABLE";
+	   textcolor(BLACK);textbackground(WHITE);
+	   setcolor(BLACK);
+	   settextstyle(2,HORIZ_DIR,5);
+	   outtextxy(1,60," FLIGHTNO.                  FROM                   TO                   TIME    ");
+	   textcolor(LIGHTGRAY);textbackground(BLACK);
+	   while(d.read((char*)&D,sizeof(D)))
+	   {
+	   if(strcmpi(depts,D.getdept())==0)
+	    {
+	    ++i;
+	    D.dispflightd();
+	    found+=1;
+	    }
+
+	   }
+	   i=7;
+	  d.close();
+	  if(!found)
+	  cout<<"RECORD DOESNOT EXIST";
+
+	  getch();
+	  break;
+
+  case 3: gotoxy(20,21);
+	  cout<<"ENTER THE DESTINATION";
+	  gets(dests);
+	  clrscr();
+	  BOX(1,2,80,24,218);
+	  LINE_HOR(2,79,4,196);
+	  LINE_HOR(2,79,6,196);
+	  LINE_HOR(2,79,22,196);
+	  gotoxy(32,3);
+	  cout<<"FLIGHT(S) AVAILABLE";
+	 textcolor(BLACK);textbackground(WHITE);
+	 setcolor(BLACK);
+	 settextstyle(2,HORIZ_DIR,5);
+	 outtextxy(1,60," FLIGHTNO.                  FROM                   TO                   TIME    ");
+	  textcolor(LIGHTGRAY);textbackground(BLACK);
+	 while(d.read((char*)&D,sizeof(D)))
+	 {
+	 if(strcmpi(dests,D.getdest())==0)
+	  {
+	    ++i;
+	    D.dispflightd();
+	    found=1;
+	    }
+
+	   }
+	  i=7;
+	  d.close();
+	  if(!found)
+	  cout<<"RECORD DOESNOT EXIST";
+	  getch();
+	  break;
+  case 4:clrscr();
+	 mainmenu();
+	 break;
+
+  default:gotoxy(20,21);
+	  cout<<"INVALID OPEARATION";
+	  returnsearch();
+
+
+ }
+	}//else
+	getch();
+
+	returnsearch();
+	getch();
+	}
+void returnsearch()
+{
+int ch2;
+gotoxy(2,22);
+cout<<"\n  PRESS 1 TO RETURN TO MAIN MENU 2.SEARCH MORE:";
+cin>>ch2;
+switch(ch2)
+{
+ case 1:closegraph();
+	mainmenu();
+	break;
+ case 2:closegraph();
+	search();
+	break;
+ default:returnsearch();
+}
+}
+void modify()
+{clrscr();
+
+void returnmodify();
+int ticket,foundm=0,pos;
+long int price1;
+char enter;
+int found=0,chclass,age,n;
+
+fstream d1;
+
+d1.open("DOMESTIC",ios::binary|ios::in);
+if(!d1)
+ cout<<"CANNOT OPEN FILE";
+fstream b;
+b.open("BOOKING",ios::in|ios::binary|ios::out);
+textcolor(WHITE);
+textbackground(RED);
+cout<<"\nENTER THE PASSPORT NUMBER TO BE MODIFIED:";
+cin>>ticket;
+
+while(b.read((char*)&B,sizeof(B)))
+{
+pos=b.tellg();
+if(ticket==B.getticketno())
+{
+	  int gdriver = DETECT, gmode, errorcode;
+	  initgraph(&gdriver, &gmode, "");
+	  setcolor(YELLOW);
+	  setfillstyle(SOLID_FILL,BLACK);
+	  rectangle(4,40,635,335);
+	  floodfill(5, 41, YELLOW);
+	  settextstyle(7,HORIZ_DIR,2);
+	  settextstyle(7,HORIZ_DIR,2);
+	  outtextxy(250,47,"TICKET");
+	  line(6,85,630,85);
+
+	  line(100,118,629,118);
+	  line(91,295,629,295);
+	  line(100,119,6,200);
+	  line(6,200,92,293);
+	  line(100,220,600,220);
+	  outtextxy(10,120,"FROM");
+	  outtextxy(16,255,"TO");
+
+		gotoxy(14,9);
+		cout<<"PASSPORTNO";
+		gotoxy(40,9);
+		cout<<"PASSENGER";
+		gotoxy(70,9);
+		cout<<"SEX";
+		gotoxy(15,12);
+		cout<<"ADDRESS";
+		gotoxy(41,12);
+		cout<<"PHONENO";
+		gotoxy(69,12);
+		cout<<"EMAIL";
+		gotoxy(13,16);
+		cout<<"FLIGHT";
+		gotoxy(43,16);
+		cout<<"FOODTYPE";
+		gotoxy(70,16);
+		cout<<"TIME";
+		gotoxy(29,16);
+		cout<<"PRICE";
+		gotoxy(58,16);
+		cout<<"SEATNO";
+B.dispbookingdd();
+getch();
+clrscr();
+closegraph();
+cout<<"\nENTER THE NEW DETAILS:";
+  B.getbooking();
+  do
+  {
+
+  if(strcmpi(D.getdept(),B.getdept())==0 && strcmpi(D.getdest(),B.getdest())==0)
+    {
+
+      strcpy(B.flightno(),D.getfno());
+      B.tb.h=D.t.h;
+      B.tb.m=D.t.m;
+      B.tb.s=D.t.s;
+      found=1;
+      //b.write((char*)&B,sizeof(B));
+
+      break;
+
+    }
+    }while(d1.read((char*)&D,sizeof(D)));
+
+ if(!found)
+ {
+    cout<<"NO FLIGHT IS AVAILABLE IN THIS ROUTE";
+    cout<<"\nPRESS A/a to rebook or B/b to exit:";
+    cin>>enter;
+       if(enter=='A'|| enter=='a')
+	 B.getbooking();
+       else if(enter=='B'|| enter=='b')
+	 {exit(0);
+	  getch();
+	 }
+       }
+
+   cout<<"\nENTER THE PREFERED CLASS (1.FIRSTCLASS/2.BUSINNESS CLASS/3.ECONOMIC CLASS)";
+   cin>>chclass;
+
+   switch(chclass)
+   {
+    case 1:
+	   fstream ff;
+	   ff.open("dfirstclass",ios::binary|ios::in);
+	   if(!ff)
+	   cout<<"CANNOT OPEN FILE";
+	   else
+	   {
+		cout<<"\nENTER THE AGE OF THE PASSENGER:";
+		cin>>age;
+			if(age<=5)
+			{
+			ff.read((char*)&PF,sizeof(PF));
+			price1=PF.gettodf();
+			B.price=price1;
+			b.write((char*)&B,sizeof(B));
+			}
+			else if(age<=14)
+			{
+			ff.read((char*)&PF,sizeof(PF));
+			price1=PF.getkidf();
+			B.price=price1;
+			b.write((char*)&B,sizeof(B));
+			}
+			else
+			{
+			ff.read((char*)&PF,sizeof(PF));
+			PF.adult();
+			price1=PF.getadultf();
+			B.price=price1;
+			b.write((char*)&B,sizeof(B));
+			}
+
+
+	   }
+
+	   break;
+    case 2:     fstream fb;
+		fb.open("dbusinessclass",ios::binary|ios::in);
+		if(!fb)
+		cout<<"CANNOT OPEN FILE";
+		else
+		{
+
+			cout<<"\nENTER THE AGE OF THE PASSENGER:";
+			cin>>age;
+			if(age<=5)
+			{
+			fb.read((char*)&PB,sizeof(PB));
+			price1=PB.gettodb();
+			B.price=price1;
+			b.write((char*)&B,sizeof(B));
+			}
+			else if(age<=14)
+			{
+			fb.read((char*)&PB,sizeof(PB));
+			price1=PB.getkidb();
+			 B.price=price1;
+			 b.write((char*)&B,sizeof(B));
+			}
+			else
+			{
+			fb.read((char*)&PB,sizeof(PB));
+			price1=PB.getadultb();
+			B.price=price1;
+			b.write((char*)&B,sizeof(B));
+			}
+		}
+
+		break;
+
+    case 3: fstream fe;
+	    fe.open("deconomicclass",ios::binary|ios::in);
+	    if(!fe)
+	    cout<<"CANNOT OPEN FILE";
+	    else
+	    {
+		cout<<"\nENTER THE AGE OF THE PASSENGER:";
+		cin>>age;
+		if(age<=5)
+		{
+		fe.read((char*)&PE,sizeof(PE));
+		  price1=PE.gettode();
+		  B.price=price1;
+		  b.write((char*)&B,sizeof(B));
+		}
+		else if(age<=14)
+		{
+		fe.read((char*)&PE,sizeof(PE));
+		  price1=PE.getkide();
+		  B.price=price1;
+		  b.write((char*)&B,sizeof(B));
+		}
+		else
+		{
+		fe.read((char*)&PE,sizeof(PE));
+		  price1=PE.getadulte();
+		  B.price=price1;
+		  b.write((char*)&B,sizeof(B));
+		}
+	    }
+
+		break;
+
+    default: cout<<"\nINVALID OPERATION";
+
+
+    }//switch
+
+
+clrscr();
+
+	  gdriver = DETECT, gmode, errorcode;
+	  initgraph(&gdriver, &gmode, "");
+
+	  setcolor(YELLOW);
+	  setfillstyle(SOLID_FILL,BLACK);
+	  rectangle(4,40,635,335);
+	  floodfill(5, 41, YELLOW);
+	  settextstyle(7,HORIZ_DIR,2);
+	  //BOX(1,3,80,21,218);
+	  outtextxy(250,47,"TICKET");
+	  line(6,85,630,85);
+
+	  line(100,118,629,118);
+	  line(91,295,629,295);
+	  line(100,119,6,200);
+	  line(6,200,92,293);
+	  line(100,220,600,220);
+	  outtextxy(10,120,"FROM");
+	  outtextxy(16,255,"TO");
+
+		gotoxy(14,9);
+		cout<<"PASSPORTNO";
+		gotoxy(40,9);
+		cout<<"PASSENGER";
+		gotoxy(70,9);
+		cout<<"SEX";
+		gotoxy(15,12);
+		cout<<"ADDRESS";
+		gotoxy(41,12);
+		cout<<"PHONENO";
+		gotoxy(69,12);
+		cout<<"EMAIL";
+		gotoxy(13,16);
+		cout<<"FLIGHT";
+		gotoxy(43,16);
+		cout<<"FOODTYPE";
+		gotoxy(70,16);
+		cout<<"TIME";
+		gotoxy(29,16);
+		cout<<"PRICE";
+		gotoxy(58,16);
+		cout<<"SEATNO";
+B.dispbookingdd();
+getch();
+clrscr();
+closegraph();
+pos=pos-sizeof(B);
+b.seekp(pos);
+b.write((char*)&B,sizeof(B));
+foundm=1;
+}//if
+}//while
+
+if(!foundm)
+cout<<"RECORD NOT FOUND";
+b.close();
+d1.close();
+returnmodify();
+getch();
+}
+void returnmodify()
+{
+int ch2;
+cout<<"\nPRESS 1 TO RETURN TO MAIN MENU 2.MODIFY MORE:";
+cin>>ch2;
+switch(ch2)
+{
+ case 1:mainmenu();
+	break;
+ case 2:modify();
+	break;
+ default:returnmodify();
+}
+}
+void cancellation()
+{
+void returndelete();
+clrscr();
+int ticket,found=0;
+
+fstream fdelete,td;
+fdelete.open("BOOKING",ios::in|ios::binary);
+td.open("temp",ios::binary|ios::in|ios::out);
+if(!td)
+   cout<<"\nCANNOT OPEN FILE";
+cout<<"\nENTER THE PASSPORT NUMBER TO BE DELETED:";
+cin>>ticket;
+
+while(fdelete.read((char*)&B,sizeof(B)))
+{
+if(ticket==B.getticketno())
+{
+	   int gdriver = DETECT, gmode, errorcode;
+	   initgraph(&gdriver, &gmode, "");
+	  setcolor(YELLOW);
+	  setfillstyle(SOLID_FILL,BLACK);
+	  rectangle(4,40,635,335);
+	  floodfill(5, 41, YELLOW);
+	  settextstyle(7,HORIZ_DIR,2);
+	  outtextxy(250,47,"TICKET");
+	  line(6,85,630,85);
+
+	  line(100,118,629,118);
+	  line(91,295,629,295);
+	  line(100,119,6,200);
+	  line(6,200,92,293);
+	  line(100,220,600,220);
+	  outtextxy(10,120,"FROM");
+	  outtextxy(16,255,"TO");
+
+		gotoxy(14,9);
+		cout<<"PASSPORTNO";
+		gotoxy(40,9);
+		cout<<"PASSENGER";
+		gotoxy(70,9);
+		cout<<"SEX";
+		gotoxy(15,12);
+		cout<<"ADDRESS";
+		gotoxy(41,12);
+		cout<<"PHONENO";
+		gotoxy(69,12);
+		cout<<"EMAIL";
+		gotoxy(13,16);
+		cout<<"FLIGHT";
+		gotoxy(43,16);
+		cout<<"FOODTYPE";
+		gotoxy(70,16);
+		cout<<"TIME";
+		gotoxy(29,16);
+		cout<<"PRICE";
+		gotoxy(58,16);
+		cout<<"SEATNO";
+
+B.dispbookingdd();
+
+outtextxy(100,350,"THIS TICKET IS CANCELLED");
+found=1;
+getch();
+closegraph();
+clrscr();
+}
+else
+td.write((char*)&B,sizeof(B));
+}
+if(!found)
+cout<<"RECORD NOT FOUND";
+fdelete.close();
+td.close();
+remove("BOOKING");
+rename("temp","BOOKING");
+returndelete();
+
+cleardevice();
+getch();
+}
+void returndelete()
+{
+int ch2;
+clrscr();
+cout<<"\nPRESS 1 TO RETURN TO MAIN MENU 2.CANCEL MORE";
+cin>>ch2;
+switch(ch2)
+{
+ case 1:mainmenu();
+	break;
+ case 2:cancellation();
+	break;
+ default:returndelete();
+}
+}
+void pricedetails()
+{
+clrscr();
+int gdriver = DETECT, gmode, errorcode;
+initgraph(&gdriver, &gmode, "");
+void returnprice();
+fstream ff,fb,fe;
+ff.open("dfirstclass",ios::in,ios::binary);
+if(!ff)
+  cout<<"CANNOT OPEN FILE";
+fb.open("dbusinessclass",ios::in,ios::binary);
+if(!fb)
+  cout<<"CANNOT OPEN FILE";
+fe.open("deconomicclass",ios::in,ios::binary);
+if(!fe)
+  cout<<"CANNOT OPEN FILE";
+
+setbkcolor(BLUE);
+setcolor(YELLOW);
+setfillstyle(WIDE_DOT_FILL,YELLOW);
+floodfill(11, 11, YELLOW);
+for(int i=0,j=100;i<100;i++,j--)
+{
+rectangle(130-j,70,500+i,400);
+}
+settextstyle(1,HORIZ_DIR,1);
+outtextxy(200,70,"TICKET PRICE DETAILS");
+outtextxy(200,90,"*****************************");
+settextstyle(2,HORIZ_DIR,5);
+outtextxy(150,120,"*FIRST CLASS");
+outtextxy(210,145,"ADULTS  :RS 10000");
+outtextxy(210,165,"KIDS    :RS 7000");
+outtextxy(210,185,"INFANTS :RS 5000");
+
+outtextxy(150,210,"*BUSINESS CLASS");
+outtextxy(210,235,"ADULTS  :RS 7000");
+outtextxy(210,255,"KIDS    :RS 5000");
+outtextxy(210,275,"INFANTS :RS 3000");
+
+outtextxy(150,300,"*ECONOMIC CLASS");
+outtextxy(210,325,"ADULTS  :RS 5000");
+outtextxy(210,345,"KIDS    :RS 3000");
+outtextxy(210,365,"INFANTS :RS 1000");
+returnprice();
+getch();
+}
+void returnprice()
+{
+int ch2;
+settextstyle(1,HORIZ_DIR,1);
+outtextxy(145,410,"\nPRESS 1 TO RETURN TO MAIN MENU");
+cin>>ch2;
+switch(ch2)
+{
+ case 1:closegraph();
+	mainmenu();
+	break;
+ default:returnprice();
+}
+getch();
+}
+void display()
+{
+//int gdriver = DETECT, gmode, errorcode;
+//initgraph(&gdriver, &gmode, "");
+int d=0;
+clrscr();
+void returndisplay();
+
+
+fstream f;
+f.open("BOOKING",ios::in|ios::binary|ios::out);
+
+while(f.read((char*)&B,sizeof(B)))
+{
+
+ int gdriver = DETECT, gmode, errorcode;
+ initgraph(&gdriver, &gmode, "");
+
+ d=1;
+ setcolor(YELLOW);
+ setfillstyle(SOLID_FILL,BLACK);
+ rectangle(4,40,635,335);
+ floodfill(5, 41, YELLOW);
+
+ settextstyle(7,HORIZ_DIR,2);
+ outtextxy(250,47,"TICKET");
+ line(6,85,630,85);
+
+ line(100,118,629,118);
+ line(91,295,629,295);
+ line(100,119,6,200);
+ line(6,200,92,293);
+ line(100,220,600,220);
+ outtextxy(10,120,"FROM");
+ outtextxy(16,255,"TO");
+
+ gotoxy(14,9);
+ cout<<"PASSPORTNO";
+ gotoxy(40,9);
+ cout<<"PASSENGER";
+ gotoxy(70,9);
+ cout<<"SEX";
+ gotoxy(15,12);
+ cout<<"ADDRESS";
+ gotoxy(41,12);
+ cout<<"PHONENO";
+ gotoxy(69,12);
+ cout<<"EMAIL";
+ gotoxy(13,16);
+ cout<<"FLIGHT";
+ gotoxy(43,16);
+ cout<<"FOODTYPE";
+ gotoxy(70,16);
+ cout<<"TIME";
+ gotoxy(29,16);
+ cout<<"PRICE";
+ gotoxy(58,16);
+ cout<<"SEATNO";
+
+B.dispbookingdd();
+getch();
+clrscr();
+closegraph();
+//cout<<"\n";
+}
+if(!d)
+  cout<<"NOONE BOOKED A TICKET";
+f.close();
+returndisplay();
+getch();
+}
+void returndisplay()
+{
+int ch2;
+gotoxy(100,10);
+cout<<"\nPRESS 1 TO RETURN TO MAIN MENU 2.DISPLAY AGAIN";
+cin>>ch2;
+switch(ch2)
+{
+ case 1:closegraph();
+	mainmenu();
+	break;
+ case 2:closegraph();
+	display();
+	break;
+ default:returndisplay();
+}
+}
+void help()
+{
+
+clrscr();
+int ch1;
+int gdriver = DETECT, gmode, errorcode;
+initgraph(&gdriver, &gmode, "");
+setcolor(RED);
+setbkcolor(LIGHTMAGENTA);
+settextstyle(8,HORIZ_DIR,4);
+outtextxy(250,0,"HELP");
+settextstyle(7,HORIZ_DIR,1);
+outtextxy(10,45,"RESERVATION") ;
+outtextxy(10,60,"*******************");
+settextstyle(2,HORIZ_DIR,4);
+outtextxy(10,80,"To book a ticket choose 'RESERVATION'.Modifying and cancellation is permitted only if the ticket is already");
+outtextxy(10,90,"booked.");
+outtextxy(10,115,"Enter the customer to book a ticket,when you book a ticket,you would be asked to enter the place of departure");
+outtextxy(10,125,"and destination,automatically the time of the flight and ticket price would be displayed in your ticket.");
+outtextxy(10,145,"Once the ticket is booked you are given a choice to either display your reservation or to go back.");
+settextstyle(7,HORIZ_DIR,1);
+outtextxy(10,160,"SEARCH");
+outtextxy(10,175,"***********");
+settextstyle(2,HORIZ_DIR,4);
+outtextxy(10,195,"search displays the flight details provided on the basis of  flight number,place of departure and");
+outtextxy(10,205,"destination");
+settextstyle(7,HORIZ_DIR,1);
+outtextxy(10,220,"MODIFY AND CANCELLATION");
+outtextxy(10,235,"****************************************");
+settextstyle(2,HORIZ_DIR,4);
+outtextxy(10,255,"To modify or cancel,enter the passport number of the passenger whose reservation you  might want to");
+outtextxy(10,265," modify/cancel");
+outtextxy(10,280,"Once the record is modified it would be displayed.");
+settextstyle(7,HORIZ_DIR,1);
+outtextxy(10,295,"PRICE DETAILS");
+outtextxy(10,310,"*********************");
+settextstyle(2,HORIZ_DIR,4);
+outtextxy(10,330,"\n\nThe price details displays the concessions provided on the basis of  age and travel preferences.");
+settextstyle(8,HORIZ_DIR,2);
+outtextxy(10,380,"****THANKYOU FOR CHOOSING TO TRAVEL WITH US****");
+outtextxy(80,430,"\nPRESS 1 TO GO BACK TO MAIN MENU");
+cin>>ch1;
+if(ch1==1)
+  mainmenu();
+else
+  help();
+closegraph();
+getch();
+}
+
+void booking::getbooking()
+ {
+ cout<<"\nENTER THE PASSPORTNO           :";cin>>ticketno;
+ cout<<"\nENTER THE PASSENGER'S FIRSTNAME:";gets(firstname);
+ cout<<"\nENTER THE PASSENGER'S LASTNAME :";gets(lastname);
+ cout<<"\nENTER THE PHONE NUMBER         :";cin>>phone;
+ cout<<"\nENTER THE EMAIL                :";gets(email);
+ cout<<"\nENTER THE FOOD TYPE            :";gets(food);
+ cout<<"\nENTER THE SEX(M/F)             :";cin>>sex;
+ cout<<"\nENTER THE ADDRESS              :";gets(adress);
+ cout<<"\nENTER THE PLACE OF DEPARTURE   :";gets(dept);
+ cout<<"\nENTER THE DESTINATION          :";gets(dest);
+ randomize();
+ seat=random(100);
+ }
+ void booking::dispbooking()
+ {
+ cout<<"\nPASSPORTNO          :"<<ticketno;
+ cout<<"\nPASSENGER'S FIRSTNAME:"<<firstname;
+ cout<<"\nPASSENGER'S LASTNAME :"<<lastname;
+ cout<<"\nPLACE OF DEPARTURE   :"<<dept;
+ cout<<"\nDESTINATION          :"<<dest;
+ cout<<"\nPHONE NUMBER         :"<<phone;
+ cout<<"\nEMAIL                :"<<email;
+ cout<<"\nSEX(M/F)             :"<<sex;
+ cout<<"\nADDRESS               :"<<adress;
+ cout<<"\nFOOD TYPE            :"<<food;
+ cout<<"\nSEAT NO              :"<<seat;
+
+ }
+
+void flightdom::dispflight()
+{
+cout<<"\nYOUR FLIGHT NO IS    :"<<fno;
+cout<<"\nTIME of your flight  :"<<t.h<<":"<<t.m;
+
+}
+void dfirst::toddler()
+{
+cout<<"\nTICKET PRICE       RS:"<<todf;
+}
+void dfirst::children()
+{
+cout<<"\nTICKET PRICE       RS:"<<kidf;
+}
+void dfirst::adult()
+{
+cout<<"\nTICKET PRICE       RS:"<<adultf;
+}
+void dbusiness::toddler()
+{
+cout<<"\nTICKET PRICE       RS:"<<todb;
+}
+void dbusiness::children()
+{
+cout<<"\nTICKET PRICE       RS:"<<kidb;
+}
+void dbusiness::adult()
+{
+cout<<"\nTICKET PRICE       RS:"<<adultb;
+}
+void deconomic::toddler()
+{
+cout<<"\nTICKET PRICE       RS:"<<tode;
+}
+void deconomic::children()
+{
+cout<<"\nTICKET PRICE       RS:"<<kide;
+}
+void deconomic::adult()
+{
+cout<<"\nTICKET PRICE       RS:"<<adulte;
+}
+
+
+
+void flightdom::dispflightd()
+{
+cout<<"\n\n";
+gotoxy(2,i);
+cout<<fno;
+
+gotoxy(27,i);
+cout<<dept;
+
+gotoxy(49,i);
+cout<<dest;
+
+gotoxy(72,i);
+cout<<t.h<<":"<<t.m;
+
+}
+
+
+ void flightdom::disptimed()
+ {
+ cout<<t.h<<":"<<t.m;
+ }
+ void booking::dispbookingdd()
+ {
+ gotoxy(14,7);
+ cout<<dept;
+ gotoxy(13,20);
+ cout<<dest;
+ gotoxy(17,10);
+ cout<<ticketno;
+ gotoxy(38,10);
+ cout<<firstname<<"/"<<lastname;
+ gotoxy(71,10);
+ cout<<sex;
+ gotoxy(15,13);
+ cout<<adress;
+ gotoxy(41,13);
+ cout<<phone;
+ gotoxy(62,13);
+ cout<<email;
+ gotoxy(13,17);
+ cout<<flightno1;
+ gotoxy(45,17);
+ cout<<food;
+ gotoxy(70,17);
+ cout<<tb.h<<":"<<tb.m;
+ gotoxy(30,17);
+ cout<<price;
+ gotoxy(60,17);
+ cout<<seat;
+}
