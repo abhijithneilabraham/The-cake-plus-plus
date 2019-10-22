@@ -1,0 +1,76 @@
+#include<iostream.h>
+#include<conio.h>
+#include<graphics.h>
+void LINE_HOR(int column1,int column2,int row,char c)
+{
+for(column1;column1<=column2;column1++)
+{
+gotoxy(column1,row);
+cout<<c;
+}
+}
+void LINE_VER(int row1,int row2,int column,char c)
+{
+for(row1;row1<=row2;row1++)
+{
+gotoxy(column,row1);
+cout<<c;
+}
+}
+void BOX(int column1,int row1,int column2,int row2,char c)//box
+{
+char ch=218;
+char c1,c2,c3,c4;
+char l1=196,l2=179;
+if(c==ch)
+{
+c1=218;
+c2=191;
+c3=192;
+c4=217;
+l1=196;
+l2=179;
+}
+else
+{
+c1=c;
+c2=c;
+c3=c;
+c4=c;
+l1=c;
+l2=c;
+}
+gotoxy(column1,row1);
+cout<<c1;
+gotoxy(column2,row1);
+cout<<c2;
+gotoxy(column1,row2);
+cout<<c3;
+gotoxy(column2,row2);
+cout<<c4;
+column1++;
+column2--;
+LINE_HOR(column1,column2,row1,l1);
+LINE_HOR(column1,column2,row2,l1);
+column1--;
+column2++;
+row1++;
+row2--;
+LINE_VER(row1,row2,column1,l2);
+LINE_VER(row1,row2,column2,l2);
+}
+void main()
+{
+clrscr();
+int gdriver = DETECT, gmode, errorcode;
+initgraph(&gdriver, &gmode, "");
+ BOX(1,3,80,21,218);
+ LINE_HOR(13,79,8,196);
+ LINE_HOR(2,79,6,196);
+ LINE_HOR(12,79,19,196);
+ line(100,119,6,200);
+ line(6,200,90,295);
+ line(100,220,600,220);
+
+ getch();
+ }
