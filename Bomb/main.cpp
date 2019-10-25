@@ -15,10 +15,10 @@ int main()
 
 
 
-for(int i=0;i<10;i++)
+for(int j=0;j<10;j++)
 {
   cout<<str<<"\n";
-  cout<<i;
+  cout<<j;
   usleep(1000000); //usleep sets timer
 cout << '\a'; // this command makes a beep sound! interesting
 
