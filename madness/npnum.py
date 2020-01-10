@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jan  7 15:38:38 2020
+
+@author: abhijithneilabraham
+"""
+import re
+x=["checkforfilename"]
+y=x[0].split("_")
+#y=[[i] for i in y]
+print(y)
+delimiters = " ", "_",
+regexPattern = '|'.join(map(re.escape, delimiters))
+text=['Function_GetmobDuck']
+text=re.split(regexPattern, text[0])
+print(text,'(regex)')
+while '' in text:text.remove('')
+print(text,'(nullvalues)')
+def camel_case_split(txt): 
+    a=[]
+    k=0
+    for i,j in enumerate(txt):
+        if j.isupper() and i!=0:
+            a.append(txt[k:i])
+            k=i
+    a.append(txt[k:])
+    return a
+            
+for i in text:
+    
+    print(camel_case_split(i))
