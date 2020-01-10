@@ -12,7 +12,7 @@ y=x[0].split("_")
 print(y)
 delimiters = " ", "_",
 regexPattern = '|'.join(map(re.escape, delimiters))
-text=['Function_GetmobDuck']
+text=['Function_GetmobDuckLuck']
 text=re.split(regexPattern, text[0])
 print(text,'(regex)')
 while '' in text:text.remove('')
@@ -26,7 +26,8 @@ def camel_case_split(txt):
             k=i
     a.append(txt[k:])
     return a
-            
+n=[]
 for i in text:
+    n+=camel_case_split(i)
+print(n)
     
-    print(camel_case_split(i))
