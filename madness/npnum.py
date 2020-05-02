@@ -31,3 +31,11 @@ for i in text:
     n+=camel_case_split(i)
 print(n)
     
+import numpy as np
+c=[0 for i in range(3)]
+a=np.asarray([1,2,3])
+b=np.asarray([3,2,1])
+d=[a,b]
+for i in d:
+    c+=i
+print(c)
